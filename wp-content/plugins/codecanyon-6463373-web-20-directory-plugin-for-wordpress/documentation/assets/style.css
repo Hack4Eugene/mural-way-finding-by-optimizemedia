@@ -1,0 +1,95 @@
+body {
+	font-family: "Exo 2",sans-serif;
+	background-color: #f9f9f9;
+	}
+body.custom-font-enabled {
+	font-family: "Exo 2",sans-serif;
+	}
+.entry-content code,
+.comment-content code {
+	font-family: "Exo 2",sans-serif;
+	}
+
+.entry-content pre,
+.comment-content pre {
+	font-family: "Exo 2",sans-serif;
+	}
+
+body,
+input,
+textarea,
+.page-title span,
+.pingback a.url {
+	font-family: "Exo 2",sans-serif;
+}
+
+body .site {
+	max-width: 1170px;
+	margin: 10px auto;
+}
+.site-content {
+	width: 100%;
+}
+.widget-area {
+	width: 100%;
+}
+.site {
+	overflow: visible;
+	padding: 0 20px !important;
+}
+
+.nav-menu .sub-menu {
+	z-index: 10;
+}
+
+.page-template-default, .page-template {
+	background-color: #a0a0a0;
+}
+
+hr {
+  height: 2px;
+  margin: 70px 0 20px;
+}
+
+.entry-content h2 {
+	font-size: 25px;
+}
+.entry-content h3 {
+	font-size: 21px;
+}
+.entry-content h4 {
+	font-size: 17px;
+}
+
+.entry-content .w2dc_docs {
+	width: 72% !important;
+}
+.entry-content .w2dc_theme_sticky {
+	width: 27% !important;
+}
+.entry-content .w2dc_theme_sticky ul {
+	list-style: none
+}
+.entry-content .w2dc_theme_sticky ol li {
+	margin-left: 20px;
+}
+.entry-content .w2dc_theme_sticky ol li a,
+.entry-content .w2dc_theme_sticky ol li a:hover,
+.entry-content .w2dc_theme_sticky ol li a:visited {
+	color: #21759b;
+	font-size: 15px;
+}
+.entry-content .sticky {
+	position: fixed !important;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 100;
+	border-top: 0;
+}
+.w2dc_docs_link {
+	background: url('link.png') no-repeat bottom left;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}

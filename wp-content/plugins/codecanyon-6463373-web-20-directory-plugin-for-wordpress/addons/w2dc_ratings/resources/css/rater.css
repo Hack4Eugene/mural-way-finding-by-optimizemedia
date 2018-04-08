@@ -1,0 +1,42 @@
+.w2dc-rating {
+	font-size: 25px;
+	display: inline-block;
+	line-height: 1.5em;
+	margin: 5px 0;
+	margin-left: 10px;
+}
+.statVal span.ui-rater-avgvalue {
+	display: inline-block;
+	/* vertical-align: text-bottom; */
+	position: relative;
+	top: -5px;
+}
+.statVal span.ui-rater-rating {
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	font-family: Arial !important;
+	font-size: 10px !important;
+	height: 30px;
+	padding: 5px 5px;
+	width: 30px;
+	line-height: 20px;
+}
+/* .statVal span.ui-rater-avgvalue {color: #FF0000; font-size: 1.3em; font-weight: bold; vertical-align: bottom; line-height: normal;} */
+.stat {margin: 0; font-weight:bold; font-size: 1em; color:#333333; padding-right: 5px;}
+.stat label {font-weight: bold;}
+.ui-rater {font-weight:bold; font-size: 1em; color:#333333;}
+.ui-rater-starsOff {width: 100px;}
+.ui-rater-starsOff, .ui-rater-starsOn {display:inline-block; height:20px; background:url(../images/stars.png) repeat-x 0 0px; padding:0;}
+.ui-rater-starsOn {display:block; max-width:100px; top:0; background-position: 0 -40px;}
+.ui-rater-starsHover {background-position: 0 -20px!important;}
+.ui-rater-single {margin-bottom: 10px;}
+.commentlist .comment-body {margin-bottom: 10px;}
+
+.admin_avg_value {
+	float: left;
+	width: 100px;
+}
+.statValMetabox {
+	float: left;
+}

@@ -1,0 +1,16 @@
+[05-Feb-2018 15:44:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/search.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/search.php on line 10
+[05-Feb-2018 15:44:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/search.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/search.php on line 10
+[09-Mar-2018 02:44:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/404.php on line 10
+[17-Mar-2018 06:49:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentysixteen/404.php on line 10

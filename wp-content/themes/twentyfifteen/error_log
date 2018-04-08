@@ -1,0 +1,38 @@
+[26-Feb-2018 05:08:12 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function the_ID() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/content-link.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/content-link.php on line 13
+[04-Mar-2018 08:06:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function the_ID() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/content.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/content.php on line 13
+[06-Mar-2018 02:55:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/404.php on line 10
+[06-Mar-2018 12:05:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/index.php on line 17
+[06-Mar-2018 13:32:31 UTC] PHP Notice:  Undefined index: wp_version in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/functions.php on line 40
+[06-Mar-2018 13:32:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_template_directory() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/functions.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/functions.php on line 41
+[06-Mar-2018 13:32:31 UTC] PHP Notice:  Undefined index: wp_version in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/functions.php on line 40
+[06-Mar-2018 13:32:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_template_directory() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/functions.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/functions.php on line 41
+[19-Mar-2018 16:42:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/404.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/404.php on line 10
+[23-Mar-2018 15:27:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function _e() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/author-bio.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/author-bio.php on line 12
+[23-Mar-2018 19:15:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/archive.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/jjmarketing2014/public_html/eugenecitymap.com/wp-content/themes/twentyfifteen/archive.php on line 19

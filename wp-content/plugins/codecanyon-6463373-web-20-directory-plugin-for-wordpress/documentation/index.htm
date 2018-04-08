@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Web 2.0 Directory Documentation</title>
+
+<link rel='stylesheet' id='googleFontsUbuntu-css'  href='http://fonts.googleapis.com/css?family=Exo+2%3A200%2C300%2C400%2C500%2C600%2C600italic%2C700&#038;ver=4.4.1' type='text/css' media='all' />
+<link rel="stylesheet" href="assets/theme_style.css" type="text/css" media="all">
+<link rel="stylesheet" href="assets/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="assets/js_composer.css" type="text/css" media="all">
+<script type="text/javascript" src="assets/jquery.js"></script>
+<script>
+jQuery(document).ready(function($) {
+	if ($('.w2dc_docs').length) {
+		var stickyNavTop = $('.w2dc_theme_sticky').offset().top;
+		var stickyNavLeft = $('.w2dc_theme_sticky').offset().left;
+		 
+		var stickyNav = function(){
+			var scrollTop = $(window).scrollTop();
+			
+			if (scrollTop > stickyNavTop) { 
+				$('.w2dc_theme_sticky').addClass('sticky');
+				$('.w2dc_theme_sticky').css('left', stickyNavLeft);
+			} else {
+				$('.w2dc_theme_sticky').removeClass('sticky');
+				$('.w2dc_theme_sticky').css('left', 0); 
+			}
+		};
+		 
+		stickyNav();
+		 
+		$(window).scroll(function() {
+		    stickyNav();
+		});
+		
+		$('a[href*=#]:not([href=#])').click(function() {
+			if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+				var target = $(this.hash);
+				target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+				if (target.length) {
+					$('html,body').animate({
+						scrollTop: target.offset().top
+					}, 1000);
+					//return false;
+				}
+			}
+		});
+
+		$('.entry-content .w2dc_docs h2[id], .entry-content .w2dc_docs h3[id], .entry-content .w2dc_docs h4[id]').each(function() {
+			$(this).html($(this).html()+' <a class="w2dc_docs_link" href="#'+$(this).attr('id')+'"></a>');
+		});
+	}
+});
+</script>
+
+</head>
+
+<body class="page page-template-default logged-in admin-bar custom-font-enabled single-author customize-support">
+<div id="page" class="hfeed site">
+	<!-- #masthead -->
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+							
+	<article class="page type-page status-publish hentry">
+		<header class="entry-header">
+			<h1 class="entry-title">Web 2.0 Directory Documentation</h1>
+		</header>
+
+		<div class="entry-content">
+			<div class="vc_row wpb_row vc_row-fluid"><div class="w2dc_docs wpb_column vc_column_container vc_col-sm-8"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<p><strong>Version:</strong> 1.11.4 and higher (there may be separate notes about versions compatibility)</p>
+<h2 id="installation">Installation</h2>
+<p>To add a WordPress Plugin using the built-in plugin installer:</p>
+<ol>
+<li>Go to "Plugins -&gt; Add New".</li>
+<li>Click "Upload Plugin" button.</li>
+<li>Choose downloaded ZIP file and click "Install Now" button.</li>
+<li>Make sure that you click on "Activate the plugin", now you have installed directory plugin.</li>
+<li>Create new page with <strong>[webdirectory]</strong> shortcode or with <strong>[webdirectory custom_home=1]</strong> if you wish to build <a href="#custom_home">custom home page</a>. Also you may create additional pages with <strong>[webdirectory-submit]</strong> and <strong>[webdirectory-dashboard]</strong> shortcodes if you wish your logged in users to manage their listings, invoices and profile on the <a href="#frontend">frontend dashboard page</a>.</li>
+<li><em>(optional)</em> Create new page with <strong>[webdirectory-listing]</strong> shortcode to build special page for single listings. If you want separate "template" page for every single listing - create new page with this shortcode.</li>
+</ol>
+<p><strong>Special note</strong>: additional pages with <strong>[webdirectory-submit]</strong> and <strong>[webdirectory-dashboard]</strong> shortcodes must not have main directory page with <strong>[webdirectory]</strong> shortcode as parent.</p>
+<h4 id="multisite">WordPress Multisite installation</h4>
+<p>Upload the plugin on Network Admin plugins page, <strong>but don't activate it</strong>. It is not allowed to enable "Network Activate" for the plugin on Network plugins page, instead activate it on the plugins page of each sub-site. Also note, that each activation on each sub-site requires separate license.</p>
+<h4 id="update">How to update</h4>
+<p>First of all download the latest version of the plugin from Codecanyon. Simply unpack the archive with new version and upload all new files and folders to your plugin folder on the server (usually the name of folder is "<em>wp-content/plugins/codecanyon-6463373-web-20-directory-plugin-for-wordpress/</em>"), that is all, the system will automatically execute required operations. All files and folders must be uploaded using FTP-client (like FileZilla) or using file manager in your hosting control panel. It would be better to make backups of the database and all plugin files before update. All your configurations, settings and data will be saved after update, you will not lose anything. Files modifications must be made according to <a href="#customization">customization instructions</a>, in such case they will be saved during update.</p>
+<hr />
+<h2 id="getting_started">Getting started</h2>
+<p>So you get your instance of the plugin installed and ready for use. Now lets set up most important settings and options. Note that you may manage and change following settings in any time you want, but it is <span style="text-decoration: underline;">recommended to set up before your directory site becomes public</span>. Here is some recommendation on how to get familiar with the plugin in right way:</p>
+<ol>
+<li>first of all configure your directory using special built in <a href="#directory_settings">settings</a></li>
+<li>set up <a href="#listings_levels">listings levels</a>, by default there is one "<em>Standard</em>" level</li>
+<li>manage existing core fields and create additional <a href="#content_fields">content fields</a> for your needs</li>
+<li>build your own <a href="#directory_categories">directory categories tree</a> and tags</li>
+<li>work with locations: define <a href="#directory_locations">directory locations tree</a> and look at locations levels</li>
+<li>create some test <a href="#directory_listings">listings</a> and explore how listings behave themselves at the frontend, which additional options and tools they have</li>
+</ol>
+<hr />
+<h2 id="directory_settings">Directory settings</h2>
+<p>First of all look at "<em>Directory Admin -&gt; Directory settings</em>" page. There are some separate tabs with own groups of settings.</p>
+<h3 id="general_tab">General settings tab</h3>
+<p><img class="alignleft size-full wp-image-3752" src="assets/settings.png" alt="settings" width="523" height="604" srcset="assets/settings-260x300.png 260w, assets/settings.png 523w" sizes="(max-width: 523px) 100vw, 523px" />There are 3 available addons, if you do not need unnecessary functionality - do not enable them:</p>
+<p><strong>Frontend submission &amp; dashboard addon</strong> - allow users to <a href="#frontend">submit new listings</a> at the frontend side of your site, also provides users dashboard functionality.</p>
+<p><strong>Payments addon</strong> - includes payments processing and invoices management functionality into directory/classifieds website.</p>
+<p><strong>Ratings addon</strong> - ability to place ratings for listings, then manage these ratings by listings owners.</p>
+<h4 id="ajax_loading">AJAX Loading</h4>
+<p><strong>Use AJAX loading</strong> - load maps and listings using AJAX when click on search button, sorting buttons, pagination buttons.</p>
+<p><strong>Initial AJAX loading</strong> - initially load listings only after the page was completely loaded (not recommended).</p>
+<p><strong>Display "Show More Listings" button instead of default paginator</strong> - when switched off - default paginator will be used.</p>
+<h4 id="titles_slugs_permalinks">Titles, Slugs and Permalinks</h4>
+<p><strong>Directory title</strong> - this string will appear in the title of all frontend pages related with the directory plugin. This will be rewritten when WP SEO by Yoast plugin was activated.</p>
+<p><strong>Listing slug</strong> - this is a part of URL for single listing page, for example, in this URL <em>http://www.yoursite.com/directory/web-listing/listing/</em> <strong>listing</strong> - is the name of listing and <strong>web-listing</strong> - is the slug. Listing slug take part in some permalinks structures, see below about listings permalinks structure.</p>
+<p><strong>Category slug</strong> - this is a part of URL for categories sections, for example, in this URL <em>http://www.yoursite.com/directory/web-category/business/</em> <strong>business</strong> - is the name of category and <strong>web-category</strong> - is the slug.</p>
+<p><strong>Location slug</strong> - this is a part of URL for locations sections, for example, in this URL <em>http://www.yoursite.com/directory/web-place/united-states/los-angeles/</em> <strong>united-states/los-angeles</strong> - is the path of locations tree and <strong>web-place</strong> - is the slug.</p>
+<p><strong>Tag slug</strong> - this is a part of URL for tags sections, for example, in this URL <em>http://www.yoursite.com/<em>directory/</em>web-tag/service/</em> <strong>service</strong> - is the name of tag and <strong>web-tag</strong> - is the slug.</p>
+<p><b>Notice about slugs:</b> Slugs must contain only alpha-numeric characters, underscores or dashes. All slugs must be unique and different.</p>
+<p><strong>Listings permalinks structure</strong> - set up permalinks structure of single listings pages. Examples of listings URLs:</p>
+<ul>
+<li><strong>/%postname%/</strong> - <em>http://www.yoursite.com/directory/listing-name/</em></li>
+<li><strong>/%post_id%/%postname%/</strong> - <em>http://www.yoursite.com/directory/644/listing-name/</em></li>
+<li><strong>/%listing_slug%/%postname%/</strong> - <em>http://www.yoursite.com/directory/business-listing/listing-name/</em></li>
+<li><strong>/%listing_slug%/%category%/%postname%/</strong> - <em>http://www.yoursite.com/directory/business-category/listing-name/</em></li>
+<li><strong>/%listing_slug%/%location%/%postname%/</strong> - <em>http://www.yoursite.com/directory/business-place/listing-name/</em></li>
+<li><strong>/%listing_slug%/%tag%/</strong> - <em>http://www.yoursite.com/directory/business-tag/listing-name/</em></li>
+</ul>
+<p><strong>/%postname%/</strong> works only when directory page is not front page. When following structures is activated: <strong>/%listing_slug%/%category%/%postname%/</strong>, <strong>/%listing_slug%/%location%/%postname%/</strong> and <strong>/%listing_slug%/%tag%/%postname%/</strong> only first category, location or tag of the listing is used.</p>
+<h4 id="frontend_submission">Frontend submission and dashboard</h4>
+<p>These are additional settings for <a href="#frontend">frontend submission</a> if appropriate addon was enabled.</p>
+<p><strong>Select frontend submission login mode</strong> -</p>
+<ul>
+<li><strong>login required</strong> - logged in users have an ability to manage their listings, invoices and profile on the frontend dashboard page.</li>
+<li><strong>necessary to fill in contact form</strong> - after successful submission WordPress creates new user profile. If user with entered email already exists in the system - it doesn't required to create new profile and listing will just be assigned with existed user. Later admin may manage and contact new user when needed. For new users registration email with newly generated password will be sent.</li>
+<li><strong>not necessary to fill in contact form</strong> - the same behaviour as for previous option, but it does not required to enter contact info. For empty contact form the system creates anonymous user. Registration email will be sent when user enters contact email.</li>
+<li><strong>do not even show contact form</strong></li>
+</ul>
+<p><strong>Post status after frontend submit</strong> - define which status listing post will receive after successful submission: Pending Review, Draft or Published.</p>
+<p><strong>Post status after listing was modified</strong> - define which status listing post will receive after modification: Pending Review, Draft or Published.</p>
+<p><strong>Enable submit listing button</strong> - enable this option if you wish your users to submit new listings for the directory. Also the page with <strong>[webdirectory-submit]</strong> shortcode required.</p>
+<p><strong>Hide top admin bar at the frontend for regular users and do not allow them to see dashboard at all</strong> - when this option enabled - regular user will never see backend of your site. It is recommended to enable when you have the page with <strong>[webdirectory-dashboard]</strong> shortcode.</p>
+<p><strong>Allow users to manage own profile at the frontend dashboard</strong> - enable this option if you wish your users to manage own profile at the dashboard.</p>
+<p><strong>Enable listings tags input at the frontend</strong> - during listing creation/edition you may hide tags input.</p>
+<p><strong>Require Terms of Services on submission page?</strong> - select or create new WordPress page containing your TOS agreement and assign it using this setting.</p>
+<p><strong>Use custom login page for listings submission process</strong> - when login required before submission user have to login using default login form. You may use any 3rd party plugin to make custom login page and assign it with submission process using the dropdown above.</p>
+<p><strong>Use custom login page for login into dashboard</strong> - you may use any 3rd party plugin to make custom login page and assign it with login into dashboard using the dropdown above.</p>
+<h4 id="claim">Claim Functionality</h4>
+<p><strong>Enable claim functionality</strong> - enable/disable claim functionality at the frontend. When enabled each listing has option "allow claim", by checking this option you allow registered users to claim this listing. When claim allowed – the button "Is this you ad?" appears on listing's details page, this button opens claim form. <span style="text-decoration: underline;">This button will not appear</span> when user logged in as listing owner, also when no page with <strong>[webdirectory-dashboard]</strong> shortcode exists.</p>
+<p>When claim request was sent – notification about claim for this listing will be sent to the current listing owner.</p>
+<p>After approval claimer will become owner of this listing and will receive email notification about successful approval.</p>
+<p>Also there is the option in CSV importer to set up all imported listings as claimable.</p>
+<p><strong>Approval of claim required</strong> - when switched on each claimed listing requires approval of claim by current listing owner. In other case claim will be processed immediately without any notifications.</p>
+<p><strong>What will be with listing status after successful approval?</strong> - when set to "just approval" option – the status of claimed listing will not be changed after approval. "Expired status" option means that after approval of claimed listing – it becomes expired and new owner have to renew it to make listing active. Renewal of listing may be payment option.</p>
+<p><strong>Hide contact form on claimable listings</strong> - just hide contact form when listing is set to be claimed.</p>
+<p><strong>Hide claim metabox at the frontend dashboard</strong> - with this setting only admin may set up listing to be claimed.</p>
+<p>&nbsp;</p>
+<h3 id="listings_tab">Listings settings tab</h3>
+<p><strong>Show listings on index</strong> - this option controls whether to show listings on index page.</p>
+<p><strong>Number of listings on index page</strong> - also this number of listings will take part in building Google maps in appropriate page.</p>
+<p><strong>Number of listings on excerpt pages (categories, locations, tags, search results)</strong> - also this number of listings will take part in building Google maps in appropriate page.</p>
+<p><strong>Place listing images gallery on separate tab?</strong> - when enabled - all additional images those were assigned with the listing will be placed on a separate tab like map, comments, contact form or videos. When disabled - they will be placed under the logo image of current listing.</p>
+<p><strong>Enable contact form on listing page</strong> - whether to show contact listing owner form in a separate tab on current listing page.</p>
+<p><strong>Contact Form 7 shortcode</strong> - The plugin was fully integrated with Contact Form 7 plugin. Insert shortcode generated by CF 7 plugin and CF 7 form will be displayed instead of standard contact form. This will work only when CF 7 plugin enabled, otherwise standard contact form will be displayed.</p>
+<p><strong>Enable bookmarks list</strong> - this option allows to enable/disable "<em>My bookmarks"</em> functionality: if enabled - at the frontend on listings pages it shows "<em>Add Bookmark</em>" and "<em>Remove Bookmark</em>". When user clicks to add in bookmarks - the system saves current listing in his personal list, user may click "<em>My bookmarks</em>" and show all his saved listings. Here is the image how listings frontend panel looks:</p>
+<p><img class="alignnone size-full wp-image-4219" src="assets/front_buttons-1.png" alt="front_buttons" width="815" height="74" srcset="assets/front_buttons-1-300x27.png 300w, assets/front_buttons-1-768x70.png 768w, assets/front_buttons-1-624x57.png 624w, assets/front_buttons-1.png 815w" sizes="(max-width: 815px) 100vw, 815px" /></p>
+<p><strong>Show print listing button</strong> - show/hide print listing button on current listing page.</p>
+<p><strong>Show listing in PDF button</strong> - show/hide "<em>Save listing in PDF"</em> button on current listing page. Please note, that this feature uses free 3rd party service <em>pdfmyurl.com</em>. The speed and quality of this service depends on your own server's and site's accessibility.</p>
+<p><strong>Allow regular users to change listings expiration dates</strong> - with this enabled setting listings owners may manually set expiration dates of listings, after that date the status of listing become expired. The change of expiration dates available only for listings with limited active period, not for eternal listings. Administrators may control expiration dates even if this option is disabled.</p>
+<p><strong>Hide comments number from index and excerpt pages</strong> - the number of comments or reviews will be hidden from index and excerpt pages and visible only on listing pages on special tab.</p>
+<p><strong>Hide listings creation date</strong> - listings creation date may be hidden at the frontend at all.</p>
+<p><strong>Listings comments mode</strong> - when the option "As configured in WP settings" was selected - it depends on WordPress discussion settings such as "Allow people to post comments on new articles" and also individual listing setting "Allow comments".</p>
+<p><strong>Priority of opening of listing tabs</strong> - Set up priority of tabs those are opened by default. If any listing does not have any tab - next tab in the order will be opened by default.</p>
+<p><strong>Enable statistics functionality</strong> - statistics charts visible on frontend users dashboard. At the backend only total number of clicks visible.</p>
+<h4 id="breadcrumbs_settings">Breadcrumbs settings</h4>
+<p><strong>Enable breadcrumbs</strong> - show/hide breadcrumbs links on single listings pages.</p>
+<p><strong>Hide home link in breadcrumbs</strong> - "Home" link will be hidden.</p>
+<p><strong>Breadcrumbs mode on listing single page</strong> - examples of breadcrumbs:</p>
+<ul>
+<li><strong>%listing title%</strong> - <em>Home » Super Shopping in LA</em></li>
+<li><strong>%category% » %listing title%</strong> - <em>Home » Business Services » Advertising, Marketing &amp; PR » Super Shopping in LA</em></li>
+<li><strong>%location% » %listing title%</strong> - <em>Home » United States » California » Los Angeles » Super Shopping in LA</em></li>
+</ul>
+<h4 id="listings_logos">Listings logos &amp; images</h4>
+<p><strong>Enable lightbox on images gallery</strong> - switch on/off lightbox effect for images gallery on single listing pages.</p>
+<p><strong>Enable automatic rotating slideshow on images gallery</strong> - switch on/off auto slider for images gallery on single listing pages.</p>
+<p><strong>The delay in rotation (in ms)</strong> - the delay between rotation of slides.</p>
+<p><strong>Exclude logo image from images gallery on single listing page</strong> - logo image will be visible only on index and excerpt pages, it will be excluded from single listing page.</p>
+<p><strong>Enable default logo image</strong> - when logo image file was not uploaded the directory will show default image.</p>
+<p><strong>Default logo image</strong> - this image will appear when listing owner did not upload own logo.</p>
+<p><strong>100% width of images gallery on single listing page</strong> - this switcher controls how image gallery will appear on listing page. When 100% width was disabled - next setting will be used.</p>
+<p><strong>Images gallery width on single listing page (in pixels)</strong> - this option needed only when 100% width of images gallery is switched off. Images gallery on listing page places at the left side within provided width, right side contains other information.</p>
+<p><strong>Images gallery main slide mode</strong> - this setting needed to fit main slide for images proportions you preferred on your site: "Cut off image to fit width and height of main slide" for popular rectangular images (in this case images may be scaled and cut off) or "Full image inside main slide" for tall and thin images (so images will be scaled to be fully placed inside main slide).</p>
+<h4 id="description_excerpt">Description &amp; Excerpt settings</h4>
+<p><strong>Enable description field</strong> - main description field may be hidden from listing.</p>
+<p><strong>Enable summary field</strong> - summary/excerpt field may be hidden from listing.</p>
+<p><strong>Excerpt max length</strong> - insert the number of words you want to show in the listings excerpts.</p>
+<p><strong>Use cropped content as excerpt</strong> - when excerpt field wasn't filled in by user - cropped main content will be used.</p>
+<p><strong>Strip HTML from excerpt</strong> - check the box if you want to strip HTML from the excerpt content only.</p>
+<p>&nbsp;</p>
+<h3 id="pages_tab">Pages &amp; views tab</h3>
+<h4 id="excerpt_views">Excerpt views</h4>
+<p><strong>Enable views switcher</strong> - when enabled - views switcher will appear on all excerpt pages of the directory.</p>
+<p><strong>Listings view by default</strong> - do not forget that selected view will be stored in cookies as preferred view.</p>
+<p><strong>Number of columns for listings Grid View</strong> - from 2 to 4 columns for this type of view.</p>
+<p><strong>Aspect ratio of logo in Grid View</strong> - 1:1 (square), 4:3, 16:9 or 2:1</p>
+<p><strong>Wrap logo image by text content in List View</strong> - when enabled logo image will be wrapped by text - it gives more useful use of space for long texts on excerpt pages.</p>
+<p><strong>Listing thumbnail logo width (in pixels) in List View</strong> - control width of logo image in List view.</p>
+<h4 id="categories_settings">Categories settings</h4>
+<p><strong>Show categories list on index and excerpt pages?</strong> - whether to show categories list on directory pages or not.</p>
+<p><strong>Categories nesting level</strong> - when set to 1 - only root categories will be listed.</p>
+<p><strong>Categories columns number</strong> - divide categories into 1, 2, 3 or 4 columns.</p>
+<p><strong>Show subcategories items number</strong> - this is the number of subcategories those will be displayed in the table, when category item includes more than this number "View all subcategories -&gt;" link appears at the bottom.</p>
+<p><strong>Show category listings count?</strong> - whether to show number of listings assigned with current category in brackets.</p>
+<h4 id="locations_settings">Locations settings</h4>
+<p><strong>Show locations list on index and excerpt pages?</strong> - whether to show locations list on directory pages or not.</p>
+<p><strong>Locations nesting level</strong> - when set to 1 - only root locations will be listed.</p>
+<p><strong>Locations columns number</strong> - divide locations into 1, 2, 3 or 4 columns.</p>
+<p><strong>Show sublocations items number</strong> - this is the number of sublocations those will be displayed in the table, when location item includes more than this number "View all slocations -&gt;" link appears at the bottom.</p>
+<p><strong>Show location listings count?</strong> - whether to show number of listings assigned with current location in brackets.</p>
+<h4 id="sorting_settings">Sorting settings</h4>
+<p><strong>Show order by links block</strong> - this block consists of options links those were allowed to sort by.</p>
+<p><img class="alignnone size-full wp-image-3763" src="assets/orderby.png" alt="orderby" width="821" height="84" srcset="assets/orderby-300x31.png 300w, assets/orderby-624x64.png 624w, assets/orderby.png 821w" sizes="(max-width: 821px) 100vw, 821px" /></p>
+<p><strong>Allow sorting by date</strong> - switch on/off sorting by date.</p>
+<p><strong>Allow sorting by title</strong> - switch on/off sorting by title.</p>
+<p><strong>Allow sorting by distance when search by radius</strong> - "Distance" option link will appear when user searches listings by distance.</p>
+<p><strong>Default order by</strong> - select by which parameter listings will be ordered by default.</p>
+<p><strong>Default order direction</strong> - select "ascending" or "descending" direction.</p>
+<p><strong>Exclude listings with empty values from sorted results</strong> - content fields those weren't filled in become empty after listing save, with enabled setting sorting by content field will exclude such listings from sorted results.</p>
+<p><strong>Sticky and featured listings always will be on top</strong> - when switched off - sticky and featured listings will be on top only when listings were sorted by date.</p>
+<h4 id="ratings_settings">Ratings settings</h4>
+<p>All these settings appears when ratings addon is active. Ability to place ratings may be managed for each <a href="#listings_levels">listing levels</a> separately. There are 3 settings:</p>
+<p><strong>Only registered users may place ratings</strong> - this setting restricts unregistered users to rate listings, when this setting unchecked - anyone can rate any listing. Please note, that when user places new rating, the plugin creates new record with ID of registered member, for anonymous users - the plugin stores their IPs, also the plugin saves cookie in user's browser.</p>
+<p><strong>Show rating in map info window</strong> - renders 5-stars rating in map info window.</p>
+<p><strong>Allow users to flush ratings of own listings</strong> - when this option was checked - listing owner has an ability to flush current rating of his listing.</p>
+<p><strong>Allow sorting by ratings</strong> - switch on/off sorting by ratings.</p>
+<p>&nbsp;</p>
+<h3 id="search_tab">Search settings tab</h3>
+<p><strong>Display search block in main part of page?</strong> - note, that search widget is independent from this setting and this widget renders on each page where main search block was hidden.</p>
+<p><strong>Show "What search" section?</strong> - show/hide "What search" section in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Show "Where search" section?</strong> - show/hide "Where search" section in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Show keywords search?</strong> - show/hide keywords field in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Show locations search?</strong> - show/hide locations dropboxes in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Show address search?</strong> - show/hide address field in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Show listings counts in locations search dropboxes?</strong> - whether to show number of listings assigned with current location in brackets.</p>
+<p><strong>Show categories search?</strong> - show/hide categories dropboxes in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Show listings counts in categories search dropboxes?</strong> - whether to show number of listings assigned with current category in brackets.</p>
+<p><strong>Show locations radius search?</strong> - show/hide radius slider in search block. This setting is actual for both: main search block and widget.</p>
+<p><strong>Dimension in radius search</strong> - which dimension to use: miles or kilometers.</p>
+<p><strong>Minimum radius search</strong> - set the minimum value for radius slider.</p>
+<p><strong>Maximum radius search</strong> - set the maximum value for radius slider.</p>
+<p><strong>Default radius search</strong> - this value will be set by default.</p>
+<p>&nbsp;</p>
+<h3 id="maps_tab">Maps &amp; Addresses tab</h3>
+<h4 id="maps_settings">Maps settings</h4>
+<p><strong>Show map on index page?</strong> - whether to show Google map on index directory page.</p>
+<p><strong>Show map on excerpt page?</strong> - whether to show Google map on excerpt directory pages.</p>
+<p><strong>Show directions panel for individual listing map?</strong> - frontend users may pave the route on Google map and get the list of directions for selected location separately, note that there may be more than 1 location of each listing.</p>
+<p><strong>Directions functionality</strong> - built-in onsite routing or redirect to build routes on Google Maps service (tablet and mobile devices may use own maps applications)</p>
+<p><strong>Default Google Maps zoom level</strong> - this zoom level is used during new listing creation, the range is 1-19. 1 - the lowest zoom (whole world), 19 - the highest zoom (individual buildings, if available).</p>
+<p><strong>Google Maps style</strong> - ability to set custom Google Map style, by default there are 10 map styles, information about map styles stores in php array in "<em>maps_styles.php</em>" file.</p>
+<p><strong>Default map height (in pixels)</strong> - default map height on main directory pages.</p>
+<p><strong>Show circle during radius search?</strong> - by this option you may hide red transparent circle that appears on map during locations search in radius.</p>
+<p><strong>Enable clusters of map markers?</strong> - when checked - map markers will be grouped in clusters.</p>
+<h4 id="addresses_settings">Addresses settings</h4>
+<p><strong>Default country/state for correct geocoding?</strong> - this value needed when you build local diirectory, all your listings place in one local area - country or state. You do not want to set countries or states in the search, so this hidden string will be automatically added to the address for correct geocoding when you create/edit listings.</p>
+<p><strong>Order of address lines</strong> - Order address elements as you wish, commas and spaces help to build address line.</p>
+<p><strong>Enable address line 1 field</strong> - enabled/disable address line 1 field in locations metaboxes.</p>
+<p><strong>Enable address line 2 field</strong> - enabled/disable address line 2 field in locations metaboxes.</p>
+<p><strong>Enable zip code</strong> - enabled/disable zip code field in locations metaboxes.</p>
+<p><strong>Enable additional info field</strong> - enabled/disable additional info field in locations metaboxes.</p>
+<p><strong>Enable manual coordinates fields</strong> - enabled/disable manual coordinates fields in locations metaboxes.</p>
+<h4 id="map_infowindow_settings">Map markers &amp; InfoWindow settings</h4>
+<p><strong>Type of Map Markers</strong> - 2 possible types: Font Awesome icons (recommended) - icons from the Font Awesome set will be used, PNG images - custom images from <em>"w2dc/resources/images/map_icons/icons/"</em> folder. Site administrator may upload additional icons in this folder via the Files manager of hosting control panel or via FTP.</p>
+<p>Using Font Awesome icons it is possible to select default icon and color of map marker. When "Custom markers on google map" option enabled in listings levels settings - users will be able to select specific icon for each marker. On <em>"Directory listings -&gt; Directory categories"</em> page it is allowed to select specific marker icon and color for each category.</p>
+<p><img class="alignnone size-full wp-image-4221" src="assets/category_icons.png" alt="category_icons" width="993" height="171" srcset="assets/category_icons-300x52.png 300w, assets/category_icons-768x132.png 768w, assets/category_icons-624x107.png 624w, assets/category_icons.png 993w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>Other settings related to custom PNG images. Do not touch these settings if you do not know what they mean. Modification of these settings needed when you use own custom map markers icons with own sizes. If you are using custom markers images, note that they must be of same size.</p>
+<p><img class="alignnone size-full wp-image-3769" src="assets/map_marker_structure.png" alt="map_marker_structure" width="633" height="393" srcset="assets/map_marker_structure-300x186.png 300w, assets/map_marker_structure-624x387.png 624w, assets/map_marker_structure.png 633w" sizes="(max-width: 633px) 100vw, 633px" /></p>
+<p>&nbsp;</p>
+<h3 id="emails_tab">Email notifications tab</h3>
+<p><strong>Days before pre-expiration notification will be sent</strong> - one time email with pre-expiration notification text will be sent to the email box of listing owner.</p>
+<p><strong>Pre-expiration notification</strong> - 2 tags are used: [listing] - listing name and [days] - number of days from previous setting.</p>
+<p><strong>Expiration notification</strong> - 2 tags are used: [listing] - listing name and [link] - the link on the listing.</p>
+<p><strong>Registration of new user notification</strong> (this setting is from frontend submission addon) - 4 tags are used: [author] - listing author name, [listing] - listing name, [login] - user login, [password] - user password.</p>
+<p><strong>Notification to admin about new listing creation</strong> (this setting is from frontend submission addon) - 3 tags are used: [user] - listing author name, [listing] - listing name, [link] - the link on the listing.</p>
+<p><strong>Notification of claim to current listing owner</strong> (this setting is from frontend submission addon) - 5 tags are used: [author] - the name of current author of the listing, [listing] - listing name, [claimer] - claimer user name, [link] - the link to approve or reject the claim, [message] - message from claimer.</p>
+<p><strong>Notification of successful approval of claim</strong> (this setting is from frontend submission addon) - 3 tags are used: [listing] - listing name, [claimer] - claimer user name, [link] - the link on the listing.</p>
+<p>&nbsp;</p>
+<h3 id="advanced_tab">Advanced settings tab</h3>
+<h4 id="google_api">Google API</h4>
+<p><strong>Google browser API key</strong> - get your Google API key <a href="https://code.google.com/apis/console" target="_blank">here</a>, following APIs must be enabled in the console: Google Maps JavaScript API, Google Static Maps API and Google Maps Directions API.</p>
+<p><strong>Google server API key</strong> - get your Google API key <a href="https://code.google.com/apis/console" target="_blank">here</a>, following APIs must be enabled in the console: Google Maps Geocoding API for radius search functionality.</p>
+<h4 id="javascript_settings">JavaScript &amp; CSS</h4>
+<p><strong>Enable lightbox slideshow?</strong> - this adds functionality to watch listings images as full size animated slideshow. Also may be disabled in order to avoid conflicts with other javascript slideshow plugins.</p>
+<p><strong>Do not include jQuery UI CSS</strong> - some themes and 3rd party plugins include own jQuery UI CSS - this may cause conflicts in styles.</p>
+<h4 id="miscellaneous">Miscellaneous</h4>
+<p><strong>Enable autocomplete on addresses fields</strong> - disable if you are using predefined locations tree and do not want to see country, city, e.t.c. in the input autocomplete field.</p>
+<p><strong>Enable "Get my location" button on addresses fields</strong> - enable/disable geolocation button on addresses fields.</p>
+<h4 id="recaptcha_settings">reCaptcha settings</h4>
+<p>reCaptcha is used on contact listing owner forms and frontend submission form. You may get your reCAPTCHA API Keys <a href="http://www.google.com/recaptcha" target="_blank">here</a></p>
+<h4 id="wpml_settings">WPML Settings</h4>
+<p>This section appears when WPML plugin is active.</p>
+<p><strong>Enable frontend translations management</strong> (this setting is from frontend submission addon) - enable/disable management of translations on users frontend dashboard.</p>
+<p>&nbsp;</p>
+<h3 id="customization_tab">Customization tab</h3>
+<h4 id="color_palettes">Color palettes</h4>
+<p><strong>Compare palettes at the frontend</strong> - this setting enables at the frontend special interactive widget helping to compare color palettes. Do not forget to switch off this setting when comparison will be completed.</p>
+<p><img class="alignleft size-full wp-image-2339" src="assets/color_palette_widget.png" alt="color_palette_widget" width="224" height="407" srcset="assets/color_palette_widget-165x300.png 165w, assets/color_palette_widget.png 224w" sizes="(max-width: 224px) 100vw, 224px" /></p>
+<p>When you want to finish and hide this widget - click bottom link and you'll be redirected to the settings page, preferred color palette already will be selected and you just need to save changes. While you didn't disable comparison setting, this widget still be at the frontend.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>Color palette</strong> - selecting any of palettes will automatically change some settings below, like links and buttons colors, backgrounds of search, categories, locations blocks, primary color, jQuery UI style and so on. Changes will not appear untill you click save button.</p>
+<p>It would be better to experiment and test other customization settings directly on the site.</p>
+<p>&nbsp;</p>
+<h3 id="social_tab">Social Sharing tab</h3>
+<p>Note, that 3rd party social sharing plugins aren't able to share single listings pages, so instead you have to use built-in social sharing buttons.</p>
+<p><img class="alignnone size-full wp-image-3773" src="assets/social_buttons.png" alt="social_buttons" width="813" height="54" srcset="assets/social_buttons-300x20.png 300w, assets/social_buttons-624x41.png 624w, assets/social_buttons.png 813w" sizes="(max-width: 813px) 100vw, 813px" /></p>
+<p><strong>Buttons style</strong> - there are 3 sets of buttons, image files place in subfolders of <em>"resources/images/social/"</em>.</p>
+<p><strong>Include and order buttons</strong> - choose which social sharing services you need and order their buttons.</p>
+<p><strong>Enable counter</strong> - enable/disable counter near social sharing buttons. Note, that enabled counter takes some time to load social sharing block on the page.</p>
+<p><strong>Buttons place</strong> - some possible places for social sharing block on the page.</p>
+<p><strong>Social buttons width</strong> - this setting controls the size of buttons.</p>
+<p>&nbsp;</p>
+<h3 id="payments_tab">Payments tab</h3>
+<p>This tab appears after activation of <a href="#payments">payments addon</a>.</p>
+<h4 id="general_payments_settings">General payments setting</h4>
+<p><strong>Any services are Free for administrators</strong> - when this option checked - the system will never create invoices for administrators, all services always will be free for them.</p>
+<p><strong>Currency</strong> - the list of possible currencies used for payments.</p>
+<p><strong>Currency symbol or code</strong> - this symbol or code will appear on frontend/backend pages.</p>
+<p><strong>Currency symbol or code position</strong> - choose preferred position of currency symbol/code.</p>
+<p><strong>Decimal separator</strong> - decimal separator of price value, possible values: dot or comma.</p>
+<p><strong>Hide decimals in levels price table</strong> - show/hide decimals (cents) on levels price table at the frontend.</p>
+<p><strong>Thousands separator</strong> - the separator for thousands, millions, billions, ... Possible values: no separator, dot, comma or space.</p>
+<h4 id="sales_tax">Sales tax</h4>
+<p><strong>Enable taxes</strong> - enable/disable taxes functionality.</p>
+<p><strong>Selling company information</strong> - this information will appear on invoice page.</p>
+<p><strong>Tax name</strong> - abbreviation, e.g. "VAT".</p>
+<p><strong>Tax rate</strong> - insert tax rate in percents.</p>
+<p><strong>Include or exclude value added taxes</strong> - do you want prices on the website to be quoted including or excluding value added taxes?</p>
+<h4 id="bank_transfer">Bank transfer settings</h4>
+<p><strong>Allow bank transfer</strong> - allow users to select "<em>Bank transfer</em>" payment method.</p>
+<p><strong>Bank transfer information</strong> - this information appear on print invoice page. Provide whole instructions and payment requisite.</p>
+<h4 id="paypal_settings">PayPal settings</h4>
+<p><strong>Business email</strong> - PayPal merchant email.</p>
+<p><strong>Allow single payment</strong> - when this option is checked - "<em>PayPal</em>" payment gateway available.</p>
+<p><strong>Allow subscriptions</strong> - when this option is checked - "<em>PayPal subscription</em>" payment gateway available. Only for listings with limited active period. Look at <a href="#payments">additional information</a>.</p>
+<p><strong>Test Sandbox mode</strong> - allows to test the process of payment using PayPal sandbox credentials. You must have a <a href="http://developer.paypal.com/" target="_blank">PayPal Sandbox</a> account setup before using this feature.</p>
+<h4 id="stripe_settings">Stripe settings</h4>
+<p><strong>Test secret key</strong></p>
+<p><strong>Test publishable key</strong></p>
+<p><strong>Live secret key</strong></p>
+<p><strong>Live publishable key</strong></p>
+<p>The publishable key is used to generate credit card tokens and should be included with the HTML form. The secret key is used for all other API calls on the server-side.</p>
+<p><strong>Test Sandbox mode</strong> - Before activating your account, you can only interact with <a href="http://www.stripe.com" target="_blank">Stripe</a> in test mode. With the exception of the ability to make a real charge to a credit card, all of Stripe's features are available in test mode.</p>
+<hr />
+<h2 id="directory_categories">Directory categories</h2>
+<p>Site admin may create/edit/delete special categories items. Management of directory categories tree has exactly the same functionality as standard WordPress categories, but these are separate items and have special administration page "<em>Directory listings -&gt; Directory categories"</em>.</p>
+<p>Also custom icons may be associated with directory categories. Using Font Awesome icons it is possible to select specific marker icon and color for each category.</p>
+<p><img class="alignnone size-full wp-image-4221" src="assets/category_icons.png" alt="category_icons" width="993" height="171" srcset="assets/category_icons-300x52.png 300w, assets/category_icons-768x132.png 768w, assets/category_icons-624x107.png 624w, assets/category_icons.png 993w" sizes="(max-width: 993px) 100vw, 993px" /></p>
+<p>By default there are 77 icons files inside "<em>resources/images/categories_icons/"</em> folder of the plugin. Site administrator may upload additional icons in this folder via the Files manager of hosting control panel or via FTP.</p>
+<hr />
+<h2 id="directory_locations">Directory locations</h2>
+<p>There are 3 ways to provide locations functionality on directory site:</p>
+<ol>
+<li><strong>Use predefined locations</strong> - this way users will be able to select for their listings only previously defined locations, autocomplete on addresses fields and "Get my location" button on addresses fields disabled, also search by address must be disabled on search form. So addresses fields will be used only to enter streets, buildings, postal codes, e.t.c.</li>
+<li><strong>Use addresses fields</strong> - do not insert predefined locations. Users will work only with addresses fields, autocomplete function and "Get my location" button on addresses fields will help them. Addresses fields will contain whole information about country, state, city, region, streets, buildings, postal codes e.t.c. In this way default radius search value would be quite useful to get nearby locations in search results.</li>
+<li><strong>All in one</strong> - usage of predefined locations and addresses fields. But in such case information in addresses fields may contain country, state, city, region, the same as selected predefined locations.</li>
+</ol>
+<p><img src="assets/locations_search_options.png" alt="locations_search_options" width="807" height="140" class="alignnone size-full wp-image-4241" srcset="assets/locations_search_options-300x52.png 300w, assets/locations_search_options-768x133.png 768w, assets/locations_search_options-624x108.png 624w, assets/locations_search_options.png 807w" sizes="(max-width: 807px) 100vw, 807px" /></p>
+<h3 id="predefined_locations">Predefined locations</h3>
+<p>Site admin may create/edit/delete special predefined locations items. Management of directory locations tree has exactly the same functionality as standard WordPress categories, but these are separate items and have special administration page "<em>Directory listings -&gt; Directory locations</em>"</p>
+<p>After locations levels were successfully configured and locations tree completed - users may select any predefined location from select boxes group on create/edit listing page.</p>
+<p><img class="alignnone size-full wp-image-4223" src="assets/predefined_locations-1.png" alt="predefined_locations" width="640" height="147" srcset="assets/predefined_locations-1-300x69.png 300w, assets/predefined_locations-1-624x143.png 624w, assets/predefined_locations-1.png 640w" sizes="(max-width: 640px) 100vw, 640px" /></p>
+<p>Note, that there is an ability to select more than 1 location for each listing.</p>
+<h3 id="locations_level">Locations levels</h3>
+<p>Just in some words, locations levels - these are names of nesting levels of directory locations tree. By default there are 3 locations levels: Country, State and City. Site admin has an ability to edit/remove or create new locations levels. But note, that in most of cases, whole chain of locations is required to set correct location point on Google maps. This means that when your directory will be used locally, for example, for users of only one country or state/region - do not delete unnecessary locations levels and locations, they are required to set correct location point at the Google map during listings creation. You'll just exclude needed locations levels from address line - yes, there is such option for each locations level, it allows to build custom address line at the frontend:</p>
+<p><img class="size-full wp-image-904" src="assets/locations_levels_addresses2.png" width="449" height="129" srcset="assets/locations_levels_addresses2-300x86.png 300w, assets/locations_levels_addresses2.png 449w" sizes="(max-width: 449px) 100vw, 449px" /></p>
+<hr />
+<h2 id="listings_levels">Listings levels</h2>
+<p>Levels of listings control the functionality amount of listings and their directory/classifieds conception.<br />
+Each listing may belong to one of defined levels, some may have eternal active period, have sticky status and enabled google maps, others may have greater number of allowed attached images or videos. It is perfect base for business model of your directory or classifieds site. On "<em>Directory Admin -&gt; Listings levels"</em> page you may order existed levels by drag &amp; drop rows in the table, the order of levels affects on <a href="#ordering">listings sorting</a>. Here is the list of listings levels options:</p>
+<p><strong>Level name</strong> - uses in the advertise table on the 1st step of listings creation. Special note: by default there is one standard listing level after installation of the plugin and the system doesn't show advertise table on the 1st step of listings creation, because it doesn't need to select the level for newly created listing.</p>
+<p><strong>Level description</strong> - uses only in the advertise table on the 1st step of listings creation.</p>
+<p><strong>Active period</strong> - in years, months and days. During this period the listing will have active status, then the status of listing become expired. After expiration listing owner or admin may prolong and renew listing.</p>
+<p><strong>Eternal active period</strong> - when enabled - listings of this level will never become expired.</p>
+<p><strong>Ability to raise up listings</strong> - if this option is checked - listing owner or admin may raise listing up in all lists those ordered by date.</p>
+<p><strong>Sticky listings</strong> - if this option is checked - listings of this level will be always sticked on top of all lists those ordered by date.</p>
+<p><strong>Featured listings</strong> - listings of this level have special css class "<em>w2dc_featured"</em>, may be customized to be highlighted and attract attention.</p>
+<p><strong>Do listings have own pages?</strong> - this option could disable listings self pages, so there will not be any links to listings pages, just that information on excerpt pages.</p>
+<p><strong>Enable google map</strong> - users have an ability to place location(s) marker on Google map.</p>
+<p><strong>Enable listing logo</strong> - listings of this level own uploaded image as logo.</p>
+<p><strong>Listing logo size</strong> - the size of logo image especially for this listings level, possible size names: thumbnail, medium, large. Real sizes in pixels admin may configure on WordPress "<em>Settings -&gt; Media"</em> page.</p>
+<p><strong>Images number available</strong> - the number of images allowed to upload for listings of this level.</p>
+<p><strong>Videos number available</strong> - the number of YouTube videos allowed to embed for listings of this level.</p>
+<p><strong>Categories number available</strong> - the number of categories allowed to be assigned with listings of this level. When during listing creation/edition user exceeded this number - the warning message will arise. Also it is possible to set unlimited number of categories.</p>
+<p><strong>Assigned categories</strong> - admin may define some special categories, those would be available for listings of this level. When during listing creation/edition user will click unavailable category checkbox - the warning message will arise.</p>
+<p>&nbsp;</p>
+<p>With enabled ratings module here will be shown additional setting:</p>
+<p><strong>Ratings</strong> - enables ratings for all listings of this level.</p>
+<p>&nbsp;</p>
+<p><strong>Locations number available</strong> - An ability to set exact number of locations allowed for each level, by default only 1 location allowed.</p>
+<p><strong>Custom markers on google map</strong> - whether listings of this level may own custom marker icons on the map.</p>
+<p>Also at this list may be 2 additional settings for <a href="#payments">payments</a> module:</p>
+<p><strong>Listings price</strong> - by this price users will be charged for listings activation and renewal.</p>
+<p><strong>Listings raise up price</strong> - by this price users will be charged for listings raise up option.</p>
+<hr />
+<h2 id="content_fields">Content fields & content fields groups</h2>
+<p>Additional content fields is one of the most important part of the directory and classifieds sites. They allow to add some piece of information to directory listings. <span style="text-decoration: underline;">Also content fields take part in the search of listings</span>. On <em>"Directory Admin -&gt; Content fields</em>" page you may order existed content fields by drag &amp; drop rows in the table.</p>
+<p><img src="assets/content_fields_links.png" alt="content_fields_links" width="830" height="139" class="alignnone size-full wp-image-4252" srcset="assets/content_fields_links-300x50.png 300w, assets/content_fields_links-768x129.png 768w, assets/content_fields_links-624x105.png 624w, assets/content_fields_links.png 830w" sizes="(max-width: 830px) 100vw, 830px" /></p>
+<p>Each content field belongs to the type that defines its behaviour and display. You may hide field name, select custom field icon, set field as required, manage visibility on pages. Also listings may be <a href="#ordering">ordered by some fields</a>. Note that you may assign fields for specific categories and/or specific levels.</p>
+<p>Content fields types:</p>
+<ul>
+<li>Content (<em>core field type</em>)</li>
+<li>Excerpt (<em>core field type</em>)</li>
+<li>Listing addresses (<em>core field type</em>)</li>
+<li>Listing categories (<em>core field type</em>)</li>
+<li>Listing tags (<em>core field type</em>)</li>
+<li>Text string</li>
+<li>Textarea</li>
+<li>Number</li>
+<li>Select list</li>
+<li>Radio buttons</li>
+<li>Checkboxes</li>
+<li>Website URL</li>
+<li>Email</li>
+<li>Date-Time</li>
+<li>Price</li>
+<li>Opening hours</li>
+</ul>
+<p>There are <strong>5 core field types</strong>, during initial installation the system creates 5 content fields - one field of each core field type. Core fields have special destination. This is impossible to delete any of these fields in future either create new field of core type, they will be always displayed on listing administration page (it is possible to disable content and excerpt fields on Listings settings tab). You can't edit slugs of these fields, can't order by them, can't set specific categories list, can't use in search.</p>
+<p>Here are common settings of fields types:</p>
+<p><strong>Field name</strong> - required and used on listings administration page and in the search block.</p>
+<p><strong>Field slug</strong> - this option required and isn't able to edit for core fields.</p>
+<p><strong>Hide name</strong> - when checked - the name of field will be hidden at frontend pages.</p>
+<p><strong>Field description</strong> - this will be like a hint for users who fill in details into field.</p>
+<p><strong>Icon image</strong> - set own custom icon for any content field, this will be displayed at frontend pages. By default there are 316 icons files inside ‘<em>resources/images/content_fields_icons/</em>‘ folder of the plugin. Site administrator may upload additional icons in this folder via the Files manager of hosting control panel or via FTP.</p>
+<p><strong>Field type</strong> - it is possible to change field type, but only for non-core fields.</p>
+<p><strong>Is this field required?</strong> - most of types of fields can be set as required and some can not - listings categories, listings tags, listings addresses.</p>
+<p><strong>Order by field</strong> - listings may be <a href="#ordering">ordered by content fields</a></p>
+<p><strong>On excerpt page</strong> - show value of this field on index and excerpt pages.</p>
+<p><strong>On listing page</strong> - show value of this field on listings pages.</p>
+<p><strong>On map</strong> - show value of this field in map info window. Address field always on top:<br />
+<img src="assets/map_info_window.png" width="327" height="275" class="size-full wp-image-2344" srcset="assets/map_info_window-300x252.png 300w, assets/map_info_window.png 327w" sizes="(max-width: 327px) 100vw, 327px" /></p>
+<p><strong>Search by this field?</strong> - take part in the search of listings. Some field types have special configuration options.</p>
+<p><strong>On advanced search panel?</strong> - when disabled - this field will appear in regular search block, when enabled - this field will be hidden by default and appear only in advanced search block</p>
+<p>&nbsp;</p>
+<p>Now detail about each content field type separately:</p>
+<h3>Content (<em>core field type</em>)</h3>
+<p>At the backend this is richtext editor field to store general content of listings. Can't be ordered by its value, can't be searched by its value. By default this field is hidden on index and excerpt pages and visible only on listings pages.</p>
+<h3>Excerpt (<em>core field type</em>)</h3>
+<p>The WordPress Excerpt is an optional summary or description of a listing; in short, a listing summary. Can't be ordered by its value, can't be searched by its value. By default this field is shown on index and excerpt pages and hidden only on listings pages. It is possible to set up max length of output, also possible to use cropped content as excerpt, when excerpt field is empty - cropped main content will be used (look at Listings settings tab).</p>
+<h3>Listings addresses (<em>core field type</em>)</h3>
+<p>This is a block of listing locations and addresses. Can't be ordered by its value, can't be required, has special search block. This block of fields is controlled by <a href="#directory_locations">locations manager</a> and <a href="#listings_levels">listings levels settings</a>.</p>
+<h3>Listings categories (<em>core field type</em>)</h3>
+<p>This is a block of categories, those were assigned to listing. Can't be ordered by its value, can't be required, has special search block. This block of fields is controlled by <a href="#directory_categories">categories manager</a> and <a href="#listings_levels">listings levels settings</a>.</p>
+<h3>Listings tags (<em>core field type</em>)</h3>
+<p>This is a block of tags, those were assigned to listing. Can't be ordered by its value, can't be required.</p>
+<h3>Text string</h3>
+<p>Uses to insert short text/string data, for instance, <span style="text-decoration: underline;">phone number</span>. At the backend display as pure HTML input element. Can be ordered by its value, can be required, can take part in search. Has own special configuration and search configuration options:</p>
+<p><strong>Max length</strong> - max number of characters allowed in this field.</p>
+<p><strong>PHP RegEx template</strong> - this interesting option allows to set the format of field. For example, such RegEx: <em>\(?([1-9]\d{2})(\)?)(-|.|\s)?([1-9]\d{2})(-|.|\s)?(\d{4})</em> matches phone number format: (xxx) xxx-xxxx</p>
+<h3>Textarea</h3>
+<p>Uses to insert long text data and/or HTML data. Can't be ordered by its value, but its values make take part in search (as separate search field, not keywords search field). Some configuration settings: "<em>HTML editor enabled</em>" to enable richtext editor, "<em>Run shortcodes</em>" - enable to process shortcodes inside this field, also have "<em>Max length</em>" setting.</p>
+<h3>Number</h3>
+<p>Uses to insert numeric data. At the backend displays as pure HTML input element. Can be ordered by its value, can be required, can take part in search. Has own special configuration options:</p>
+<p><strong>Is integer or decimal</strong> - choose how to format the value of this field.</p>
+<p><strong>Decimal separator</strong> - possible values: dot or comma.</p>
+<p><strong>Thousands separator</strong> - possible values: no separator, dot, comma or space.</p>
+<p><strong>Min</strong> - you may set minimum bound of this field. Leave empty if you do not need to limit this field.</p>
+<p><strong>Max</strong> - you may set maximum bound of this field. Leave empty if you do not need to limit this field.</p>
+<p>Special search configuration options:</p>
+<p><strong>Search mode</strong> - 4 modes available:</p>
+<ul>
+<li>enter exact number in search field</li>
+<li>provide an ability to search using min-max combination of select boxes</li>
+<li>search range slider with steps from Min-Max options</li>
+<li>search range slider with step 1, enter exact range</li>
+</ul>
+<p><strong>Min-Max options</strong> - when second search mode selected - just complete the list of options.</p>
+<h3>Select list</h3>
+<p>At the backend displays as selectbox HTML input element. Can't be ordered by its value, but its values may take part in search. On configuration page admin may complete selection items, also on the search form these items will be rendered as a group of checkboxes HTML inputs or selectbox or radio buttons group - this depends on search configuration setting: <em>"Search input mode"</em>.</p>
+<h3>Radio buttons</h3>
+<p>Fields of this type inherit all features and settings from "<em>select list</em>" field type. At the backend displays as radio buttons group of HTML input elements. On the search form these items will be rendered as a group of checkboxes HTML inputs or selectbox or radio buttons group - this depends on search configuration setting: <em>"Search input mode"</em>.</p>
+<h3>Checkboxes</h3>
+<p>Fields of this type inherit all features and settings from "<em>select list</em>" field type. At the backend displays as checkboxes group of HTML input elements. At the frontend this field looks like HTML unordered list. On the search form these items will be rendered as a group of checkboxes HTML inputs or selectbox or radio buttons group - this depends on search configuration setting: <em>"Search input mode"</em>.</p>
+<h3>Website URL</h3>
+<p>At the backend this is combination of 2 HTML inputs: the first input for a URL of link and the second for a text of link. Can't be ordered by its value, can't take part in search. At the frontend looks like a link. Has 5 configuration settings:</p>
+<p><strong>Open link in new window</strong> - when checked - the system adds <em>target="blank"</em> attribute to the link.</p>
+<p><strong>Add nofollow attribute</strong> - when checked - the system adds <em>rel="nofollow"</em> attribute to the link.</p>
+<p><strong>Enable link text field</strong> - possible to hide text link input and the text of link will be its URL in any case.</p>
+<p><strong>Default link text</strong> - this is default text for the link.</p>
+<p><strong>Use default link text when empty</strong> - when checked - empty inputs will be replaced by default link text. When unchecked - for empty inputs the URL will be displayed as link text.</p>
+<h3>Email</h3>
+<p>At the backend displays as pure HTML input element. Can't be ordered by its value, can't take part in search. At the frontend looks like <em>mailto</em> link.</p>
+<h3>Date-Time</h3>
+<p><img class="size-full wp-image-4228 alignleft" src="assets/search_calendar_widget-1.png" alt="search_calendar_widget" width="436" height="298" srcset="assets/search_calendar_widget-1-300x205.png 300w, assets/search_calendar_widget-1.png 436w" sizes="(max-width: 436px) 100vw, 436px" /></p>
+<p>At the backend this field inherits the behaviour of jQuery UI datepicker widget. Has special configuration setting to include time-selection feature.</p>
+<p>Can be ordered by its value. Also in the search block this field renders as 2 separate inputs to search by date range.</p>
+<h3>Price</h3>
+<p>Fields of this type has very much like behaviour as number field type, but it is always decimal and besides "<em>Decimal separator</em>" and "<em>Thousands separator</em>" settings it owns 2 additional configuration settings: "<em>Currency symbol"</em> and "<em>Currency code"</em>. The same special search configuration options: "<em>Search mode</em>" and "<em>Min-Max options list</em>". <em>"Search range slider with steps from Min-Max options"</em> mode on the image below:</p>
+<p><img class="alignnone size-full wp-image-4227" src="assets/price_field_search_slider-1.png" alt="price_field_search_slider" width="553" height="61" srcset="assets/price_field_search_slider-1-300x33.png 300w, assets/price_field_search_slider-1.png 553w" sizes="(max-width: 553px) 100vw, 553px" /></p>
+<h3>Opening hours</h3>
+<p>The only configuration option is <em>"Time convention"</em> - 12-hours clock or 24-hours clock.</p>
+<p><img class="alignnone size-full wp-image-4226" src="assets/opening_hours-1.png" alt="opening_hours" width="676" height="311" srcset="assets/opening_hours-1-300x138.png 300w, assets/opening_hours-1-624x287.png 624w, assets/opening_hours-1.png 676w" sizes="(max-width: 676px) 100vw, 676px" /></p>
+<p>&nbsp;</p>
+<h3>Category-specific content fields</h3>
+<p>As was told earlier, it is possible to set some fields (<em>except core fields</em>) to function only when exact specific categories were checked on listings administration page. The same functionality appears at the search block. This is important and powerful feature allows to build category-specific content fields.<br />
+<strong>For instance:</strong> there may be one <em>‘price’</em> field especially in <em>‘Classifieds/For sale’</em> category and all its subcategories, so this field will appear only in listings, those were assigned with those categories.</p>
+<p>&nbsp;</p>
+<h3 id="content_fields_groups">Content fields groups</h3>
+<p><img class="size-full wp-image-4225 alignleft" src="assets/content_fields_groups-1.png" alt="content_fields_groups" width="401" height="474" srcset="assets/content_fields_groups-1-254x300.png 254w, assets/content_fields_groups-1.png 401w" sizes="(max-width: 401px) 100vw, 401px" /></p>
+<p>This functionality allows to combine separate content fields into groups (including core fields). There is an ability to place content fields group on a separate tab on single listing page, also ability to hide content fields group from anonymous users - they will only see the link to login page <em>"You must be logged in to see this info"</em>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<hr />
+<h2 id="directory_listings">Directory listings</h2>
+<p>Listings of the directory very much like standard WordPress posts, except some things and additional features. Creation of new listing begins with choosing of listing level <em>(when there are more than 1 level in the system</em>). This is the first step and it defines functionality and behaviour of newly created listing.</p>
+<h3 id="listings_creation">Listings creation and management</h3>
+<p>Listings administration page may contain standard fields and metaboxes such as: title field, richtext editor for listing description, slug and excerpt fields, comments metabox. Also, according to the level of current listing, this page contains special metaboxes: listing categories, listing locations, content fields, media metabox with forms for images uploading and YouTube videos embedding.</p>
+<p>When you click "<em>Update</em>" or "<em>Publish</em>" button on the listing administration page - the system tries to save listing details, when all required conditions were kept (<em>all required fields completed, matched their formats and location, categories, images, videos items do not exceed their limits</em>) - the listing will be saved successfully, the listing status becomes "<em>active</em>" and the system sets expiration date (<em>when the active period of level of current listing is not eternal</em>). If something goes wrong - the post status becomes "<em>draft</em>" and warning message with the list of issues appears. <span style="text-decoration: underline;">Note, that title field is required.</span></p>
+<p>Each directory listing has special metabox on its administration page:</p>
+<p><img src="assets/listing_info_metabox-1.png" alt="listing_info_metabox" width="288" height="224" class="alignleft size-full wp-image-4230" />"<em>Listing Info</em>" metabox have some information fields: choosen listing level, listing status, sorting date and expiration date.</p>
+<p><strong>Note:</strong> <span style="text-decoration: underline;">listing status IS NOT the same thing as post status</span>, listing status may be "<em>active</em>", "<em>expired</em>" or "<em>unpaid</em>". Post status may be "<em>published</em>", "<em>pending review</em>" or "<em>draft</em>".</p>
+<p>&nbsp;</p>
+<p>Listing row on "<em>Directory listings</em>" page and "<em>Listing Info</em>" metabox place possible "<em>raise up listing</em>" and/or "<em>renew listing</em>" links.</p>
+<p><img src="assets/administration_listing_row-1.png" alt="administration_listing_row" width="927" height="121" class="alignnone size-full wp-image-4231" srcset="assets/administration_listing_row-1-300x39.png 300w, assets/administration_listing_row-1-768x100.png 768w, assets/administration_listing_row-1-624x81.png 624w, assets/administration_listing_row-1.png 927w" sizes="(max-width: 927px) 100vw, 927px" /></p>
+<h3 id="listings_raiseup">Raise up listing option</h3>
+<p>This option displays when the level of current listing has "<em>Ability to raise up listings</em>" enabled setting. This feature will raise up the listing to the top of all lists, those ordered by date. For more information look at the <a href="#ordering">sorting section</a>. This feature may be <a href="#payments">payment.</a></p>
+<h3 id="listings_renew">Renew listing option</h3>
+<p>This option displays when level of current listing has not enabled "<em>Eternal active period</em>" and current listing is under "<em>expired</em>" status. This feature processes directory listing renewal. After renew process was completed successfully the listing status becomes "<em>active</em>" and the system sets new expiration date. Also this function raises up the listing to the top of all lists, those ordered by date. This feature may be <a href="#payments">payment.</a></p>
+<h3 id="listings_upgrade">Listings upgrade</h3>
+<p><strong><em>"Directory Admin -> Listings upgrade"</em></strong> page contains following table with options:</p>
+<p><img src="assets/listings_upgrade-1.png" alt="listings_upgrade" width="789" height="420" class="alignnone size-full wp-image-4232" srcset="assets/listings_upgrade-1-300x160.png 300w, assets/listings_upgrade-1-768x409.png 768w, assets/listings_upgrade-1-624x332.png 624w, assets/listings_upgrade-1.png 789w" sizes="(max-width: 789px) 100vw, 789px" /></p>
+<p>This feature may be <a href="#payments">payment</a>, just set prices for listings upgrade according to their levels. It is possible to disable levels upgrade. Also after successful upgrade listing may be raised up. When this service is not free - successful upgrade means when invoice was completed and paid.</p>
+<hr />
+<h2 id="search">Search block and advanced search block</h2>
+<p>Search block divided in 3 sections: "<em>What search</em>", "<em>Where search</em>" and "<em>Advanced search block</em>"</p>
+<h3>What search section</h3>
+<p>This section includes keywords search field. Also allows to use categories filter and search by <a href="#content_fields">content fields</a>, not all content fields have an ability to search listings by their values.</p>
+<h3>Where search section</h3>
+<p>There are locations search filter and "<em>Search by address or zip code"</em> field in this section. "<em>Search by address or zip code"</em> field is the autocomplete field, this helps users to choose item from existed addresses or zip codes.</p>
+<h3>Advanced search block</h3>
+<p>This block is hidden by default and used only for search by <a href="#content_fields">content fields</a>. You may choose to hide search content field under "<em>Advanced search</em>" link, in order to make search block a bit smaller when there are lots of search fields enabled.</p>
+<hr />
+<h2 id="ordering">Sorting of listings</h2>
+<p>Each frontend page that displays the list of listings has "<em>Order by</em>" set of links.</p>
+<p><img src="assets/orderby.png" alt="orderby" width="821" height="84" class="alignnone size-full wp-image-4233" /></p>
+<p>By default on the top appear sticky and featured listings only when they sorted by date, in other case they sorted exactly by title, rating, additional content fields values, but there is such option <em>"Sticky and featured listings always will be on top"</em>. So it is additional tool for commerce model of the directory site - place listings of sticky or featured levels higher than other listings. Then at the second stage each list sorts by date (<em>here may be useful "raise up listings" feature</em>), except search by radius page. When user searches listings in radius - default sorting is by distance from center point.</p>
+<p>Some <a href="#content_fields">content fields</a> also may take part in sorting. Clicking sorting links allows to change order direction from ascending to descending and vice versa.</p>
+<p>You may find special sorting settings including "Default order by" setting on <a href="#pages_tab">"Pages &amp; Views" tab</a>.</p>
+<p>When ratings addon enabled - in the "<em>Order by</em>" set of links appears new option to order by listings rating.</p>
+<p>Special attention to <em>sticky</em> listings - they are have higher priority under featured and other listings.</p>
+<hr />
+<h2 id="maps">Google Maps and Marker Icons</h2>
+<p>Markers Icons depends on the type selected in <a href="#map_infowindow_settings">directory settings</a>.</p>
+<p>Frontend page may render empty map when there aren't any listings with assigned locations and defined markers. It is possible to disable maps on index or excerpt pages on <a href="#maps_tab">Maps & Addresses tab</a> of directory settings page.</p>
+<p>Here is simple example of how Google map looks with custom marker icons and special radius search layer:</p>
+<p><img src="assets/google_map.png" alt="google_map" width="816" height="595" class="alignnone size-full wp-image-4268" srcset="assets/google_map-300x219.png 300w, assets/google_map-768x560.png 768w, assets/google_map-624x455.png 624w, assets/google_map.png 816w" sizes="(max-width: 816px) 100vw, 816px" /></p>
+<p>When appropriate <a href="#listings_levels">level setting</a> is checked (<em>Custom markers on google map</em>) - during listings creation/edition users may select custom marker icons.</p>
+<p>During listings creation/edition there is an option to set marker coordinates (<em>latitude and longitude</em>) manually or by drag &amp; drop of existing marker by mouse.</p>
+<p><img src="assets/location_enter.png" alt="location_enter" width="738" height="732" class="alignnone size-full wp-image-4266" srcset="assets/location_enter-300x298.png 300w, assets/location_enter-624x619.png 624w, assets/location_enter.png 738w" sizes="(max-width: 738px) 100vw, 738px" /></p>
+<p>Clicking "<em>Generate on google map</em>" button processes targeting and compiling of addresses to render markers on the map.</p>
+<hr />
+<h2 id="frontend">Frontend dashboard &amp; submission</h2>
+<p>These features become available when "<em>Frontend submission &amp; dashboard addon</em>" was enabled.</p>
+<p>Create new page with <strong>[webdirectory-dashboard]</strong> shortcode if you wish your logged in users to manage their listings, invoices and profile on the frontend dashboard page.</p>
+<p>"<em>Submit new listing</em>" button appears on front panel, clicking this button - users start the process of listing creation divided in some steps. Note, that the page with <strong>[webdirectory-submit]</strong> shortcode required.</p>
+<p><strong>Special note</strong>: additional pages with <strong>[webdirectory-submit]</strong> and <strong>[webdirectory-dashboard]</strong> shortcodes must not have main directory page with <strong>[webdirectory]</strong> shortcode as parent.</p>
+<p><img src="assets/submission_plans-1.png" alt="submission_plans" width="1176" height="583" class="alignnone size-full wp-image-4243" srcset="assets/submission_plans-1-300x149.png 300w, assets/submission_plans-1-768x381.png 768w, assets/submission_plans-1-1024x508.png 1024w, assets/submission_plans-1-624x309.png 624w, assets/submission_plans-1.png 1176w" sizes="(max-width: 1176px) 100vw, 1176px" /></p>
+<p>Number of submission steps varies according to different conditions: log in step may be missed if user was already logged in, payment step either doesn't required for free listings. After successful submission new listing will be created and in case of payment listing user will be redirected to invoice page to select payment gateway. According to "<em>Post status after frontend submit</em>" setting listing post status will become: Pending Review, Draft or Published.</p>
+<p>There are <a href="#directory_settings">some settings</a> for frontend submission addon.</p>
+<hr />
+<h2 id="payments">Payments</h2>
+<p>This option becomes available only when "<em>Payments addon</em>" was enabled.</p>
+<p>Invoices management page appears at the backend. Authors have access only to own invoices, administrators have permissions to manage any invoices. With enabled "<em>Frontend submission &amp; dashboard addon</em>" users may manage invoices at their frontend dashboard page.</p>
+<p><img src="assets/directory_invoices.png" width="625" height="384" class="size-full wp-image-1070" srcset="assets/directory_invoices-300x184.png 300w, assets/directory_invoices-624x383.png 624w, assets/directory_invoices.png 625w" sizes="(max-width: 625px) 100vw, 625px" /></p>
+<p>Each invoice has one of following statuses: unpaid, pending or paid. Invoice item - is an object to which this invoice belongs to.</p>
+<p>There are 5 types of pay services:</p>
+<ul>
+<li><strong>listings activation</strong> - this type of service available for subscription and one time payment. After successful payment the listing status becomes “<em>active</em>” and displays at the frontend.</li>
+<li><strong>listings renewal</strong> - this type of service available for subscription and one time payment. This feature processes directory listing renewal. After renew process was completed successfully the listing status becomes “<em>active</em>” and the system sets new expiration date.</li>
+<li><strong>listings raise up</strong> - this is the service for one time payment. This feature will raise up the listing to the top of all lists, those ordered by date. For more information look at the <a href="#ordering">sorting section</a>.</li>
+<li><strong>listings upgrade</strong> – this is one time payment service. Charge users if they wish to upgrade their simple listings to featured or sticky.</li>
+<li><strong>listings claim</strong> – after successful approval of claim new owner need to pay to renew the listing.</li>
+</ul>
+<p>Invoice management page provides whole information about current invoice: the reason of invoice, invoice item, invoice status, author, price, item options, also invoice log - this is the history of actions processed with this invoice. Also taxes information available when taxes functionality was enabled.</p>
+<p>Users are allowed to process some actions with invoices, such as print invoice with all assigned information or reset selected gateway. Also there is special action button "<em>Set as paid</em>" only for administrators. This allows to set up invoice status as paid manually and processes further actions. Usually this needed to complete invoices with chosen "<em>Bank transfer</em>" payment gateway.</p>
+<p><img src="assets/payment_gateways.png" alt="payment_gateways" width="1142" height="235" class="alignnone size-full wp-image-4244" srcset="assets/payment_gateways-300x62.png 300w, assets/payment_gateways-768x158.png 768w, assets/payment_gateways-1024x211.png 1024w, assets/payment_gateways-624x128.png 624w, assets/payment_gateways.png 1142w" sizes="(max-width: 1142px) 100vw, 1142px" /></p>
+<p>Available payment gateways:</p>
+<ul>
+<li><strong>PayPal</strong> - this method for one time payment.</li>
+<li><strong>PayPal subscription</strong> - users may use this method to process automatic recurring payments. Look at additional information below.</li>
+<li><strong>Stripe</strong> - a beautiful, optimized, cross-device, payment form.</li>
+<li><strong>Bank transfer</strong> - this is semi-automatic method of payment. User selects this method, prints invoice, transfers the payment to vendor, then when site administrator will receive payment - he will manually set invoice as paid by special action button "<em>Set as paid</em>".</li>
+</ul>
+<h4 id="paypal_subscriptions">PayPal Subscriptions</h4>
+<p>Using this payment gateway directory listings owners do not need to prolong their ads each time they have been expired. They may choose to open subscription and pay automatically by recurring cycle. The only condition is that PayPal accepts only one duration unit - this means that active period of listings for subscription must be only in days, months or years, in other case active period may be rounded. So <span style="text-decoration: underline;">it is recommended to set active period only in days, only in months or only in years</span>. Examples:</p>
+<ul>
+<li>advertisement active period 3 days and 2 months - rounded to 2 months</li>
+<li>advertisement active period 15 days, 2 months and 1 year - rounded to 14 months</li>
+<li>advertisement active period 30 days and 1 month - rounded to 1 months</li>
+<li>advertisement active period 30 days - this will not be rounded</li>
+</ul>
+<p>Also, please note, that PayPal subscriptions available only for <span style="text-decoration: underline;">listings, those do not have eternal (unlimited) active period</span>.</p>
+<p><strong>Special note</strong>: PayPal single payment and PayPal subscriptions require enabled permalinks on WordPress "<em>Settings -&gt; Permalinks</em>" page.</p>
+<p>&nbsp;</p>
+<p>After activation of payments module - on <a href="#directory_settings">directory settings page</a> new tab "<em>Payments</em>" will appear with payments settings.</p>
+<hr />
+<h2 id="widgets">Directory widgets</h2>
+<p>Web 2.0 Directory plugin provides 4 types of widgets: listings, categories, search and social. Each widget type has own settings. Title setting is common for all widgets, also one common setting "<em>Show only on directory pages</em>", by enabling this setting the widget will appear only on directory pages: home directory page, categories and tags listings pages, search page, single listing pages.</p>
+<h4>Listings widget</h4>
+<p>This widget renders the list of the most recent listings ordered by date. You may set the number of listings to display, also configure to place sticky and featured listings on top of the list or to display only sticky and featured listings.</p>
+<h4>Categories widget</h4>
+<p>Categories widget renders the list of directory categories with their icons. Available settings: categories nesting level - when set to 1 – only root categories will be listed. Also it is possible to display the number of listings of each category item. "<em>Show subcategories items number</em>" - this is the number of subcategories those will be displayed in the table, when category item includes more than this number "View all subcategories -&gt;" link appears at the bottom. "<em>Parent category</em>" - enter ID of parent category to display only its children, leave 0 to show all root categories.</p>
+<h4>Locations widget</h4>
+<p>Locations widget renders the list of directory locations with their icons. Available settings: locations nesting level - when set to 1 – only root locations will be listed. Also it is possible to display the number of listings of each location item. "<em>Show sublocations items number</em>" - this is the number of sublocations those will be displayed in the table, when location item includes more than this number "View all sublocations -&gt;" link appears at the bottom. "<em>Parent location</em>" - enter ID of parent location to display only its children, leave 0 to show all root locations.</p>
+<h4>Search widget</h4>
+<p>This widget displays directory search form in the view adapted for sidebars. Widget search form has the same search fields as main search form. There is a setting that allows to hide search widget when main search form is already on the page.</p>
+<h4>Social widget</h4>
+<p>Displays icons with links to your social accounts. You may set separate URLs for each social account. Also the link to your RSS feed.</p>
+<hr />
+<h2 id="custom_home">Custom Home Page</em></h2>
+<p>By default the order of content blocks of <strong>[webdirectory]</strong> shortcode can not be changed: search form, categories block, google map, listings block. But there is a possibility to set up custom layout.</p>
+<p><img src="assets/custom_home_page_structure.png" alt="custom_home_page_structure" width="580" height="474" class="alignnone size-full wp-image-2989" srcset="assets/custom_home_page_structure-300x245.png 300w, assets/custom_home_page_structure.png 580w" sizes="(max-width: 580px) 100vw, 580px" /></p>
+<p>When you set up <strong>[webdirectory custom_home=1]</strong> – the shortcode displays only listings, no map, no categories block, no search form. This special mode allows to build custom directory home page as you wish using additional shortcodes:</p>
+<ul>
+<li><strong>[webdirectory-categories custom_home=1]</strong> - categories shortcode renders corresponding categories navigation menu.<strong><br />
+</strong></li>
+<li><strong>[webdirectory-map custom_home=1]</strong> - Google map with custom_home=1 parameter displays markers of assigned listings locations from <strong>[webdirectory custom_home=1]</strong></li>
+</ul>
+<p>The plugin is fully compatible with WordPress Visual Composer plugin, this is the best way to build pages using VC plugin with its amazing backend editor.</p>
+<p><img src="assets/visual_composer-1.png" alt="visual_composer" width="1234" height="142" class="alignnone size-full wp-image-4245" srcset="assets/visual_composer-1-300x35.png 300w, assets/visual_composer-1-768x88.png 768w, assets/visual_composer-1-1024x118.png 1024w, assets/visual_composer-1-624x72.png 624w, assets/visual_composer-1.png 1234w" sizes="(max-width: 1234px) 100vw, 1234px" /></p>
+<p>&nbsp;</p>
+<hr />
+<h2 id="customization">Customization</h2>
+<p>The customization of the directory does require some experience with HTML, CSS and even PHP to change the templates around to an arbitrary theme look. Plugin templates are designed to work relatively well with most themes, but if you do have the need to override these templates to match your theme please try to follow these conventions:</p>
+<ul>
+<li>if you want to change the layout or styles of directory section on your site do not modify existing CSS files, instead copy them and give exactly the same name to new file, just add "<em>-custom</em>" postfix to the end of name before file's extension. For example, <em>w2dc/resources/css/frontend.css</em> file must be named <em>w2dc/resources/css/frontend-custom.css</em>. Using such method will save your modifications during further updates</li>
+<li>the same convention for any templates - .tpl files in "<em>w2dc/templates/</em>" folder. For example, custom "<em>w2dc/templates/frontend/index.tpl.php</em>" template must be named "<em>w2dc/templates/frontend/index-custom.tpl.php</em>"</li>
+<li>other part of customization is that you may manage <a href="#directory_categories">categories icons</a>, <a href="#directory_locations">locations icons</a>, <a href="#maps">map markers icons</a> and <a href="#content_fields">content fields icons</a></li>
+</ul>
+<p>The inclusion of CSS files on frontend pages has following order:</p>
+<ol>
+<li><strong><em>w2dc/resources/css/bootstrap.css</em></strong> - basic CSS rules</li>
+<li><strong><em>w2dc/resources/css/frontend.css</em></strong> - main file, controls the layout of directory markup</li>
+<li><strong><em>wp-content/uploads/w2dc-plugin.css</em></strong>,  special CSS file for dynamic plugin options</li>
+<li><strong><em>w2dc/resources/css/frontend-custom.css</em></strong> - (optional)  custom main fronted file</li>
+<li><strong><em>w2dc/addons/w2dc_payments/resources/css/payments.css</em></strong> - CSS file from payments addon</li>
+<li><strong><em>w2dc/addons/w2dc_payments/resources/css/payments-custom.css</em></strong> - (optional) custom CSS file for payments addon</li>
+<li><strong><em>w2dc/addons/w2dc_ratings/resources/css/rater.css</em></strong> - CSS file from ratings addon</li>
+<li><strong><em>w2dc/addons/w2dc_ratings/resources/css/rater-custom.css</em></strong> - (optional) custom CSS file for ratings addon</li>
+<li><strong><em>w2dc/addons/w2dc_fsubmit/resources/css/submitlisting.css</em></strong> - CSS file from frontend submission addon</li>
+<li><strong><em>w2dc/addons/w2dc_fsubmit/resources/css/submitlisting-custom.css</em></strong> - (optional) custom CSS file for frontend submission addon</li>
+</ol>
+<p>The directory has special customization settings to change some elements on frontend pages like links and buttons colors, backgrounds of search, categories, locations blocks, primary color, jQuery UI style and so on.</p>
+<hr />
+<h2 id="change_texts">How to modify texts and strings</h2>
+<p>If you use WordPress in English and simply want to modify texts and strings of the plugin follow these steps:</p>
+<ol>
+<li>on "<em>Settings -> General</em> page select needed site language</li>
+<li>now you are able to work with default "<strong><em>languages/W2DC-en_US.po</em></strong>" file and modify any texts and strings using <a href="http://poedit.net/" target="_blank">poEdit</a></li>
+<li>Every time you save W2DC-en_US.po file, PoEdit automatically generates W2DC-en_US.mo file, which is the one WordPress uses and basically the only one you need to upload on the server</li>
+</ol>
+<p><strong><span style="text-decoration: underline;">Always backup W2DC-en_US.po and W2DC-en_US.mo files in order to save your changes after plugin upgrade.</span></strong></p>
+<hr />
+<h2 id="translations">Translations &amp; Multi-Language Support</h2>
+<p>Web 2.0 Directory plugin is fully adapted for translations - look at "<strong><em>languages/</em></strong>" folder with .pot and .po files. Use <a href="http://poedit.net/" target="_blank">poEdit</a> to translate .pot files. The process of translation is similar to <a href="#change_texts" target="_blank">modifying texts and strings</a>:</p>
+<ol>
+<li>duplicate the .pot file and rename it to <em>W2DC-lang_COUNTRY.po</em></li>
+<li>Example for the referenced plugin case: <em>W2DC-pt_BR.po</em><br />
+    -- pt_BR means Portuguese Brazil, but many languages don't have a country variation...<br />
+    -- you'll have to fill in with your own language</li>
+<li>on "<em>Settings -> General</em> page select needed site language</li>
+<li>Every time you save translated *.po file, PoEdit automatically generates a *.mo file, which is the one WordPress uses and basically the only one you need to upload on the server</li>
+</ol>
+<p><strong><span style="text-decoration: underline;">Always backup *.po and *.mo files in order to save your changes after plugin upgrade.</span></strong> Or you may place these files into "<strong><em>wp-content/languages/plugins/</em></strong>" folder.</p>
+<h3 id="wpml">WPML</h3>
+<p>The plugin fully compatible with WPML plugin. It allows to easily translate directory listings, directory categories, tags, predefined locations. Also users may manage listings translations at the frontend of the site.</p>
+<p><img src="assets/translations.png" alt="translations" width="565" height="501" class="alignnone size-full wp-image-2746" srcset="assets/translations-300x266.png 300w, assets/translations.png 565w" sizes="(max-width: 565px) 100vw, 565px" /></p>
+<p><strong> Note:</strong> main directory page must have translations in those languages you wish to operate. The same thing with dashboard and submission pages.</p>
+<p>When user clicks "Add translation to ..." button <img src="assets/add_translation.png" alt="add_translation" width="16" height="16" class="alignnone size-full wp-image-2749" /> - new copy of <span class="gt-baf-back">corresponding</span> listing in selected language will be created. This will be exact copy of listing from the <span style="text-decoration: underline;">original</span> language, directory categories, locations and content fields assigned with this listing will be copied either.</p>
+<p>Note, that listing operations are <span style="text-decoration: underline;">strongly connected beetween translations</span>, this means that when user or admin clicks to activate, renew, raise up, change listing level or when the active period of listing expires - all related translations also will process these oprations. But content of translations is independent, also each translation may be deleted independently.</p>
+<p>When WPML plugin is active - new setting appear on Advanced tab of directory settings page:</p>
+<p><strong>Enable frontend translations management</strong> - this allows to manage translation directly from frontend dashboard.</p>
+<hr />
+<h2 id="import">CSV Import</h2>
+<p>We place sample CSV file into "<strong><em>documentation/</em></strong>" folder in the plugin archive.</p>
+<ol>
+<li>On the second step of importing you'll collate CSV headers of columns with existing listings fields, this means there isn't fixed format for CSV files.</li>
+<li>The only required columns in CSV file those define new listings titles and level IDs. Also information about author must be provided - in any column of CSV file or by setting existed author in import settings.</li>
+<li>In order to assign categories/tags with each listing - specify category/tag slugs in one CSV column and separate them with special delimiter. This delimiter must be any string character, but not the same as the delimiter for separation of CSV columns.</li>
+<li>You may set to auto-create new directory category/tag. In such case, when there isn't any existing category/tag with provided slug - new root category/tag will be created automatically and that string in the CSV column will be used as category/tag name.</li>
+<li>MultiValues - are such fields, those may have more than one value, for example, checkboxes content field. Separate them in one CSV column with special delimiter in the same way as for assigned categories.</li>
+<li>Also you may upload ZIP archive with images files for new listings. Specify names of images files in one CSV column and separate them with special delimiter in the same way as for assigned categories. Note, that images files must be in the root inside ZIP archive, not inside folder.</li>
+<li>By default listings authors will be specified in one of CSV columns, there must be existed user ID, user login or user email. Also you may switch to assign all new listings with one specific existed user.</li>
+<li>2 possible ways to import addresses and locations for new listings: define already existed directory location ID or you may select up to 4 address parts in different CSV columns (e.g., building number in one column, street in another column, city in separate column, ......). Also you may set special column for names of existed map icons files: for example, there is such map marker icon file "<em>w2dc/resources/images/map_icons/icons/_new/Boat.png</em>", so you have to place "<em>_new/Boat.png</em>" into CSV column. Using Font Awesome icons just place the name of icon "<em>w2dc-fa-automobile</em>".</li>
+<li>When you do not have latitude/longitude information for Google Maps markers - Google geocoding service may be used to build markers points from addresses (CURL extention required), but you can only import maximum of 2500 addresses per day, this is the max query limit of the Google geocoding service, unless you have a Google Maps API business license.</li>
+<li>There is an option to configure all imported listings as claimable, this option is shown when frontend submission addon was enabled and also claim functionality was switched on.</li>
+<li>When the size of your CSV file is very large - this may slow down the server and break the process of import, you may try to split the file into smaller CSV files.</li>
+<li>Recommended to make whole backup of the database before import.</li>
+</ol>
+
+		</div>
+	</div>
+</div></div></div><div class="w2dc_theme_sticky wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_text_column wpb_content_element ">
+		<div class="wpb_wrapper">
+			<h2>Table of Contents</h2>
+<ol>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#getting_started">Getting started</a></li>
+<li><a href="#directory_settings">Directory settings</a></li>
+<li><a href="#directory_categories">Directory categories</a></li>
+<li><a href="#directory_locations">Directory locations</a></li>
+<li><a href="#listings_levels">Listings levels</a></li>
+<li><a href="#content_fields">Content fields</a></li>
+<li><a href="#directory_listings">Directory listings</a></li>
+<li><a href="#search">Search block and advanced search block</a></li>
+<li><a href="#ordering">Sorting of listings</a></li>
+<li><a href="#maps">Google Maps and marker icons</a></li>
+<li><a href="#frontend">Frontend dashboard &amp; submission</a></li>
+<li><a href="#payments">Payments</a></li>
+<li><a href="#widgets">Widgets</a></li>
+<li><a href="#custom_home">Custom home page</a></li>
+<li><a href="#customization">Customization</a></li>
+<li><a href="#change_texts">How to modify texts and strings</a></li>
+<li><a href="#translations">Translations &amp; multi-languages support</a></li>
+<li><a href="#import">CSV Import</a></li>
+</ol>
+
+		</div>
+	</div>
+</div></div></div></div>
+
+		</div><!-- .entry-content -->
+		<footer class="entry-meta">
+		</footer><!-- .entry-meta -->
+	</article><!-- #post -->
+				
+<div id="comments" class="comments-area">
+
+	
+	
+			
+</div><!-- #comments .comments-area -->			
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+		</div><!-- #main .wrapper -->
+	<!-- #colophon -->
+</div><!-- #page -->
+
+</body></html>

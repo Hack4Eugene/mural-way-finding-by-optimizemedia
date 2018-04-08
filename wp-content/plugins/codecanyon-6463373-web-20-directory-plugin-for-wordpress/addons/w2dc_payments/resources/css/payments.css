@@ -1,0 +1,23 @@
+.w2dc-price-cents {
+	vertical-align: super;
+	font-size: 50%;
+}
+.w2dc-payment-method {
+	float: left;
+	padding: 2%;
+	width: 28%;
+	text-align: center;
+}
+.w2dc-payment-method>a {
+	font-weight: bold;
+}
+.w2dc-payment-gateway-icon {
+	margin-bottom: 20px
+}
+.widefat td, .widefat th {
+	padding: 8px 10px;
+}
+
+input[type="button"].w2dc-reset-link, input[type="button"].w2dc-reset-link:hover, input[type="button"].w2dc-reset-link:focus {
+	background-image: url(../images/script_gear.png);
+}
